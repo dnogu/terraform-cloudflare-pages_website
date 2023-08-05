@@ -7,19 +7,19 @@ resource "cloudflare_pages_domain" "pages_domain" {
 
 resource "cloudflare_pages_project" "source_config" {
   account_id        = var.cloudflare_account_id
-  name              = "this-is-my-project-01"
+  name              = cloudflare_pages_domain.pages_domain.project_name
   production_branch = "main"
   source {
-    type = "github"
+    type = var.repo_type
     config {
       repo_name                     = var.repo_name
-      production_branch             = "main"
-      pr_comments_enabled           = true
-      deployments_enabled           = true
-      production_deployment_enabled = true
-      preview_deployment_setting    = "custom"
-      preview_branch_includes       = ["dev", "preview"]
-      preview_branch_excludes       = ["main", "prod"]
+      production_branch             = var.pages_production_branch
+      pr_comments_enabled           = var.pages_pr_comments_enabled
+      deployments_enabled           = var.pages_deployments_enabled
+      production_deployment_enabled = var.pages_deployments_enabled
+      preview_deployment_setting    = var.pages_preview_deployment_setting
+      preview_branch_includes       = var.preview_branch_includes
+      preview_branch_excludes       = distict(concat(split(var.pages_production_branch), var.preview_branch_excludes))
     }
   }
 }
