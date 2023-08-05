@@ -19,7 +19,7 @@ resource "cloudflare_pages_project" "source_config" {
       production_deployment_enabled = var.pages_deployments_enabled
       preview_deployment_setting    = var.pages_preview_deployment_setting
       preview_branch_includes       = var.preview_branch_includes
-      preview_branch_excludes       = distinct(concat(split(var.pages_production_branch), var.preview_branch_excludes))
+      preview_branch_excludes       = distinct(concat(tolist([var.pages_production_branch]), var.preview_branch_excludes))
     }
   }
   build_config {
