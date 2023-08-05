@@ -50,6 +50,12 @@ variable "preview_branch_includes" {
   default = ["preview", "dev"]
 }
 
+
+variable "preview_branch_excludes" {
+  type    = list(string)
+  default = [""]
+}
+
 variable "pages_root_dir" {
   type    = string
   default = ""
