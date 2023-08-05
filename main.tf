@@ -22,4 +22,7 @@ resource "cloudflare_pages_project" "source_config" {
       preview_branch_excludes       = distict(concat(split(var.pages_production_branch), var.preview_branch_excludes))
     }
   }
+  build_config {
+    root_dir            = var.pages_root_dir
+  }
 }

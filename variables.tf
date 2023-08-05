@@ -49,3 +49,9 @@ variable "preview_branch_includes" {
   type    = list(string)
   default = ["preview", "dev"]
 }
+
+variable "pages_root_dir" {
+  type    = string
+  default = ""
+  description = "Directory in Repo that contains html file."
+}
