@@ -1,86 +1,90 @@
 variable "cloudflare_account_id" {
   type        = string
-  description = "Required: Cloudflare Account ID"
+  description = "The ID associated with the Cloudflare account."
 }
 
 variable "custom_domain" {
   type        = string
   default     = "example.com"
-  description = "Custom Domain Name for website"
+  description = "The domain name intended for the website."
 }
 
 variable "repo_type" {
   type        = string
-  description = "Required: VCS type. github or gitlab."
+  description = "The type of Version Control System (VCS) in use, either 'github' or 'gitlab'."
 }
 
 variable "repo_name" {
   type        = string
-  description = "Required: Repo that contains webpage source code."
+  description = "The name of the repository housing the website's source code."
 }
 
 variable "pages_production_branch" {
   type        = string
   default     = "main"
-  description = "Production Branch in VCS"
+  description = "The primary branch used for production in the VCS."
 }
 
 variable "pages_pr_comments_enabled" {
   type    = bool
   default = true
+  description = "Flag to indicate if Pull Request comments should be enabled."
 }
 
 variable "pages_deployments_enabled" {
   type    = bool
   default = true
+  description = "Flag to determine if deployments are enabled."
 }
 
 variable "pages_preview_deployment_setting" {
   type    = string
   default = "custom"
+  description = "Setting to determine how preview deployments are handled."
 }
 
 variable "pages_production_deployment_enabled" {
   type    = bool
   default = true
+  description = "Flag to indicate if production deployments are enabled."
 }
 
 variable "preview_branch_includes" {
   type    = list(string)
   default = ["preview", "dev"]
+  description = "List of branch names that should be included for previews."
 }
-
 
 variable "preview_branch_excludes" {
   type        = list(string)
   default     = []
-  description = "preview branch exclusions"
+  description = "List of branch names to exclude from previews."
 }
 
 variable "pages_root_dir" {
   type        = string
   default     = ""
-  description = "Directory where build command is run."
+  description = "The directory in which the build command is executed."
 }
 
 variable "pages_destination_dir" {
   type        = string
   default     = ""
-  description = "Directory in Repo that contains html content."
+  description = "The directory within the repository where the HTML content resides."
 }
 
 variable "cloudflare_zone_lookup" {
   type        = string
-  description = "Cloudflare Managed Zone"
+  description = "The DNS zone managed by Cloudflare that's associated with this configuration."
 }
 
 variable "cloudflare_managed_dns" {
   type        = bool
   default     = true
-  description = "Is this DNS Zone managed by Cloudflare."
+  description = "Boolean to indicate if the DNS Zone is under Cloudflare's management."
 }
 
 variable "repo_owner" {
   type        = string
-  description = "Owner of Repo"
+  description = "The individual or organization that owns the specified repository."
 }
