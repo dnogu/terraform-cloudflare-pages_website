@@ -29,6 +29,10 @@ resource "cloudflare_pages_project" "source_config" {
   build_config {
     root_dir = var.pages_root_dir
   }
+  deployment_configs {
+    preview {}
+    production {}
+  }
 }
 
 resource "cloudflare_record" "pages_domain" {
