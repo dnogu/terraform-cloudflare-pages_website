@@ -31,7 +31,7 @@ resource "cloudflare_record" "pages_domain" {
   count   = var.cloudflare_managed_dns ? 1 : 0
   zone_id = data.cloudflare_zone.example[count.index].id
   name    = trimsuffix(var.custom_domain, join("", [".", var.cloudflare_zone_lookup]))
-  value   = "${replace(var.custom_domain, ".", "").pages.dev}"
+  value   = "${replace(var.custom_domain, ".", "")}.pages.dev"
   type    = "CNAME"
   ttl     = 3600
 }
