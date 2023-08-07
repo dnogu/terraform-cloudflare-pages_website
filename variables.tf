@@ -53,7 +53,7 @@ variable "preview_branch_includes" {
 
 variable "preview_branch_excludes" {
   type    = list(string)
-  default = [""]
+  default = []
 }
 
 variable "pages_root_dir" {
