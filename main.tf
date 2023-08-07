@@ -16,7 +16,7 @@ resource "cloudflare_pages_project" "source_config" {
     type = var.repo_type
     config {
       repo_name                     = var.repo_name
-      repo_owner                    = var.repo_owner
+      owner                         = var.repo_owner
       production_branch             = var.pages_production_branch
       pr_comments_enabled           = var.pages_pr_comments_enabled
       deployments_enabled           = var.pages_deployments_enabled
