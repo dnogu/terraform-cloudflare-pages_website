@@ -59,7 +59,13 @@ variable "preview_branch_excludes" {
 variable "pages_root_dir" {
   type        = string
   default     = ""
-  description = "Directory in Repo that contains html file."
+  description = "Directory where build command is run."
+}
+
+variable "pages_destination_dir" {
+  type        = string
+  default     = ""
+  default     = "Directory in REpo that contains html content."
 }
 
 variable "cloudflare_zone_lookup" {
