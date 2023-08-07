@@ -27,7 +27,7 @@ resource "cloudflare_pages_project" "source_config" {
     }
   }
   build_config {
-    root_dir = var.pages_root_dir
+    root_dir        = var.pages_root_dir
     destination_dir = var.pages_destination_dir
   }
   deployment_configs {
@@ -46,7 +46,7 @@ resource "cloudflare_record" "pages_domain" {
 }
 
 data "cloudflare_zone" "example" {
-  count = var.cloudflare_managed_dns ? 1 : 0
+  count      = var.cloudflare_managed_dns ? 1 : 0
   account_id = var.cloudflare_account_id
-  name  = var.cloudflare_zone_lookup
+  name       = var.cloudflare_zone_lookup
 }
