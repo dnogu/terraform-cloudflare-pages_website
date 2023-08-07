@@ -54,6 +54,7 @@ variable "preview_branch_includes" {
 variable "preview_branch_excludes" {
   type    = list(string)
   default = []
+  description = "preview branch exclusions"
 }
 
 variable "pages_root_dir" {
@@ -65,7 +66,7 @@ variable "pages_root_dir" {
 variable "pages_destination_dir" {
   type        = string
   default     = ""
-  default     = "Directory in REpo that contains html content."
+  default     = "Directory in Repo that contains html content."
 }
 
 variable "cloudflare_zone_lookup" {
