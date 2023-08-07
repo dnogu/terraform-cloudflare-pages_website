@@ -3,6 +3,9 @@ resource "cloudflare_pages_domain" "pages_domain" {
   account_id   = var.cloudflare_account_id
   project_name = cloudflare_pages_project.source_config.name
   domain       = var.custom_domain
+  depends_on = [
+    cloudflare_pages_project.source_config
+  ]
 }
 
 resource "cloudflare_pages_project" "source_config" {
