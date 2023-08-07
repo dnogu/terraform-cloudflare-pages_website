@@ -57,7 +57,18 @@ variable "preview_branch_excludes" {
 }
 
 variable "pages_root_dir" {
-  type    = string
-  default = ""
+  type        = string
+  default     = ""
   description = "Directory in Repo that contains html file."
+}
+
+variable "cloudflare_zone_lookup" {
+  type        = string
+  description = "Cloudflare Managed Zone"
+}
+
+variable "cloudflare_managed_dns" {
+  type        = bool
+  default     = true
+  description = "Is this DNS Zone managed by Cloudflare."
 }
