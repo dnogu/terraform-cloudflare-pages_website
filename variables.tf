@@ -72,3 +72,8 @@ variable "cloudflare_managed_dns" {
   default     = true
   description = "Is this DNS Zone managed by Cloudflare."
 }
+
+variable "repo_owner" {
+  type = string
+  description = "Owner of Repo"
+}
