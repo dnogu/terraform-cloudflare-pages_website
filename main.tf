@@ -1,13 +1,13 @@
 
 resource "cloudflare_pages_domain" "pages_domain" {
   account_id   = var.cloudflare_account_id
-  project_name = replace(var.custom_domain, ".", "")
+  project_name = cloudflare_pages_project.source_config.name
   domain       = var.custom_domain
 }
 
 resource "cloudflare_pages_project" "source_config" {
   account_id        = var.cloudflare_account_id
-  name              = cloudflare_pages_domain.pages_domain.project_name
+  name              = replace(var.custom_domain, ".", "")
   production_branch = "main"
   source {
     type = var.repo_type
@@ -23,6 +23,20 @@ resource "cloudflare_pages_project" "source_config" {
     }
   }
   build_config {
-    root_dir            = var.pages_root_dir
+    root_dir = var.pages_root_dir
   }
+}
+
+resource "cloudflare_record" "pages_domain" {
+  count   = var.cloudflare_managed_dns ? 1 : 0
+  zone_id = data.cloudflare_zone.example.id
+  name    = trimsuffix(var.custom_domain, join("", [".", var.cloudflare_zone_lookup]))
+  value   = "192.0.2.1"
+  type    = "A"
+  ttl     = 3600
+}
+
+data "cloudflare_zone" "example" {
+  count = var.cloudflare_managed_dns ? 1 : 0
+  name  = var.cloudflare_zone_lookup
 }
