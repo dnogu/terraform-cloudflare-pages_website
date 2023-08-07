@@ -39,6 +39,11 @@ resource "cloudflare_pages_project" "source_config" {
     root_dir        = var.pages_root_dir
     destination_dir = var.pages_destination_dir
   }
+
+  deployment_configs {
+    preview {}
+    production {}
+  }
 }
 
 // This resource creates a DNS record for the custom domain in Cloudflare, if managed by Cloudflare.
