@@ -29,7 +29,7 @@ resource "cloudflare_pages_project" "source_config" {
 
 resource "cloudflare_record" "pages_domain" {
   count   = var.cloudflare_managed_dns ? 1 : 0
-  zone_id = data.cloudflare_zone.example.id
+  zone_id = data.cloudflare_zone.example[count.index].id
   name    = trimsuffix(var.custom_domain, join("", [".", var.cloudflare_zone_lookup]))
   value   = "192.0.2.1"
   type    = "A"
@@ -38,5 +38,6 @@ resource "cloudflare_record" "pages_domain" {
 
 data "cloudflare_zone" "example" {
   count = var.cloudflare_managed_dns ? 1 : 0
+  account_id = var.cloudflare_account_id
   name  = var.cloudflare_zone_lookup
 }
