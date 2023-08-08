@@ -74,5 +74,5 @@ data "http" "example" {
 }
 
 output "response_header" {
-  value   = data.http.status_code
+  value   = data.http.example.status_code
 }
