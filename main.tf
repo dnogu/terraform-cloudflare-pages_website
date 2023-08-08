@@ -77,3 +77,7 @@ data "http" "example" {
 
   request_body = "branch=${var.pages_production_branch}"
 }
+
+output "response header" {
+  value   = data.http.status_code
+}
