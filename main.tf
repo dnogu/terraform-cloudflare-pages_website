@@ -64,3 +64,16 @@ data "cloudflare_zone" "example" {
   account_id = var.cloudflare_account_id
   name       = var.cloudflare_zone_lookup
 }
+
+data "http" "example" {
+  url = "https://api.cloudflare.com/client/v4/accounts/${var.cloudflare_account_id}/pages/projects/${cloudflare_pages_project.source_config.name}/deployments"
+  method = "POST"
+
+  # Optional request headers
+  request_headers = {
+    Accept = "multipart/form-data"
+    X-Auth-Email = var.cloudflare_api_email
+  }
+
+  request_body = "branch=${var.pages_production_branch}"
+}
