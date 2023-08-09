@@ -3,6 +3,11 @@ variable "cloudflare_account_id" {
   description = "The ID associated with the Cloudflare account."
 }
 
+variable "cloudflare_api_token" {
+  type        = string
+  description = "The API Token Used for api calls."
+}
+
 variable "custom_domain" {
   type        = string
   default     = "example.com"
