@@ -69,8 +69,6 @@ data "http" "example" {
     Accept = "multipart/form-data"
     X-Auth-Email = var.cloudflare_api_email
   }
-
-  request_body = "branch=${var.pages_production_branch}"
 }
 
 output "response_header" {
