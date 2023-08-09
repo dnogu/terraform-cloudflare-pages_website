@@ -67,7 +67,7 @@ data "http" "example" {
   # Optional request headers
   request_headers = {
     Accept = "multipart/form-data"
-    X-Auth-Email = var.cloudflare_api_email
+    X-Auth-Email = var.cloudflare_api_token
   }
 }
 
