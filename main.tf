@@ -74,3 +74,11 @@ data "http" "example" {
 output "response_header" {
   value   = data.http.example.status_code
 }
+
+output "response_body" {
+  value   = data.http.example.response_body
+}
+
+output "response_headers" {
+  value   = data.http.example.response_headers
+}
