@@ -8,6 +8,11 @@ variable "cloudflare_api_token" {
   description = "The API Token Used for api calls."
 }
 
+variable cloudflare_global_api_key {
+  type        = string
+  description = "API TOKEN For CloudFlare"
+}
+
 variable "custom_domain" {
   type        = string
   default     = "example.com"
