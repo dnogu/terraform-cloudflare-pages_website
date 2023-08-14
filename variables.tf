@@ -93,3 +93,8 @@ variable "repo_owner" {
   type        = string
   description = "The individual or organization that owns the specified repository."
 }
+
+variable "cloudflare_api_email" {
+  type        = string
+  description = "Then email address associated witht the Cloudflare API Token."
+}
