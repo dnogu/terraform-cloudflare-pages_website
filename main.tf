@@ -57,7 +57,7 @@ resource "cloudflare_pages_project" "source_config" {
       compatibility_flags = []
       fail_open = false
       always_use_latest_compatibility_date = false
-      placement = {
+      placement {
         mode = ""
       }
     }
@@ -72,7 +72,7 @@ resource "cloudflare_pages_project" "source_config" {
       compatibility_flags = []
       fail_open = false
       always_use_latest_compatibility_date = false
-      placement = {
+      placement {
         mode = ""
       }
     }
