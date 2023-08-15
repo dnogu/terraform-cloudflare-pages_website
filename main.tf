@@ -44,6 +44,33 @@ resource "cloudflare_pages_project" "source_config" {
     root_dir        = var.pages_root_dir
     destination_dir = var.pages_destination_dir
   }
+
+  deployment_configs {
+    preview {
+      environment_variables = {}
+      secrets = {}
+      kv_namespaces = {}
+      durable_object_namespaces = {}
+      r2_buckets = {}
+      d1_databases = {}
+      compatibility_date  = var.pages_compatibility_date
+      compatibility_flags = []
+      fail_open = false
+      always_use_latest_compatibility_date = false
+    }
+    production {
+      environment_variables = {}
+      secrets = {}
+      kv_namespaces = {}
+      durable_object_namespaces = {}
+      r2_buckets = {}
+      d1_databases = {}
+      compatibility_date  = var.pages_compatibility_date
+      compatibility_flags = []
+      fail_open = false
+      always_use_latest_compatibility_date = false
+    }
+  }
 }
 
 /**
