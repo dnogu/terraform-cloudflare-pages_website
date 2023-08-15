@@ -37,6 +37,6 @@ output "cloudflare_zone_data" {
  */
 output "http_request" {
   description = "The status code returned from the Cloudflare API POST request."
-  value       = data.http.example.status_code
+  value       = data.http.example
 }
 
