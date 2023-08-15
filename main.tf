@@ -53,7 +53,7 @@ resource "cloudflare_pages_project" "source_config" {
       durable_object_namespaces = {}
       r2_buckets = {}
       d1_databases = {}
-      compatibility_date  = var.pages_compatibility_date
+      compatibility_date  = local.compatibility_date
       compatibility_flags = []
       fail_open = false
       always_use_latest_compatibility_date = false
@@ -65,7 +65,7 @@ resource "cloudflare_pages_project" "source_config" {
       durable_object_namespaces = {}
       r2_buckets = {}
       d1_databases = {}
-      compatibility_date  = var.pages_compatibility_date
+      compatibility_date  = local.compatibility_date
       compatibility_flags = []
       fail_open = false
       always_use_latest_compatibility_date = false
