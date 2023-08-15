@@ -20,7 +20,7 @@ output "pages_project" {
  */
 output "dns_record" {
   description = "The DNS record details if the DNS is managed by Cloudflare."
-  value       = var.cloudflare_managed_dns ? cloudflare_record.pages_domain.name : "DNS not managed by Cloudflare"
+  value       = var.cloudflare_managed_dns ? cloudflare_record.pages_domain[count.index].name : "DNS not managed by Cloudflare"
 }
 
 /**
