@@ -36,6 +36,7 @@ variable "cloudflare_managed_dns" {
 variable "pages_compatibility_date" {
   description = "Compatibility date used for Pages Functions."
   type        = string
+  default     = null
 }
 
 // --------------------------
