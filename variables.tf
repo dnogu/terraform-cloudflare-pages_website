@@ -33,6 +33,12 @@ variable "cloudflare_managed_dns" {
   default     = true
 }
 
+variable "pages_compatibility_date" {
+  description = "Compatibility date used for Pages Functions."
+  type        = string
+  default     = formatdate("YYYY'-'MM'-'DD", timestamp())
+}
+
 // --------------------------
 // Repository Configuration
 // --------------------------
